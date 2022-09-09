@@ -1,0 +1,1 @@
+# password-required-hook
