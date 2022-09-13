@@ -18,7 +18,9 @@ Test networks:
 
 ## Example
 
-This lock deployed is deployed on Rinkeby and uses this captcha hook. This means you can only purchase a key if you go [through this checkout URL](https://app.unlock-protocol.com/checkout?redirectUri=https%3A%2F%2Fgithub.com%2Funlock-protocol%2Fcaptcha-hook&paywallConfig=%7B%22locks%22%3A%7B%220xf66812e06C1278854b1E5F3F49231b42d907C967%22%3A%7B%22network%22%3A4%7D%7D%2C%22pessimistic%22%3Atrue%2C%22persistentCheckout%22%3Atrue%2C%22icon%22%3A%22https%3A%2F%2Flocksmith.unlock-protocol.com%2Flock%2F0xf66812e06C1278854b1E5F3F49231b42d907C967%2Ficon%22%2C%22captcha%22%3Atrue%7D).
+[This lock](https://goerli.etherscan.io/address/0x44Dc120086c34305098c379eB5638Bfc0d31D47a) deployed is deployed on Goerli and uses this password hook. This means you can only purchase a key if you go [through this checkout URL](https://app.unlock-protocol.com/checkout?redirectUri=https%3A%2F%2Funlock-protocol.com&paywallConfig=%7B"locks"%3A%7B"0x44Dc120086c34305098c379eB5638Bfc0d31D47a"%3A%7B"network"%3A5%7D%7D%2C"pessimistic"%3Atrue%2C"persistentCheckout"%3Atrue%2C"icon"%3A"https%3A%2F%2Flocksmith.unlock-protocol.com%2Flock%2F0x44Dc120086c34305098c379eB5638Bfc0d31D47a%2Ficon"%2C"password"%3Atrue%7D) and if you enter the right password: `sek3e+-pass30rD`.
+
+If you don't enter the password, or if you use an incorrect password, the transaction will fail.
 
 ## Using the hook for your own lock
 
