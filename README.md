@@ -28,11 +28,15 @@ If you don't enter the password, or if you use an incorrect password, the transa
 
 1. First, you need to pick a password, then [go to this page to generate the corresponding Ethereum address](https://unlock-protocol.github.io/password-required-hook/). You can also generate this locally if needed by checking out the repo and switching to the `gh-page` branch.
 
-![image](https://user-images.githubusercontent.com/17735/189868041-802d3d54-4dcd-4616-81a7-bab1250a8e8f.png)
+![image](https://user-images.githubusercontent.com/17735/189868482-443c6968-0f3a-4cde-ad69-0a5ae8e54238.png)
 
 2. Then, click on which network your lock has been deployed on (list above) and head `Contract` > `Write Contract`. Connect your wallet (you need to be connected as a lock's manager) and click on `setSigner`. There, enter the lock address, and then the wallet address generated in the previous step.
 
+![image](https://user-images.githubusercontent.com/17735/189868581-f5a15a26-ec6f-40db-a169-9f4e638c76fa.png)
+
 3. Finally, you need to point your lock to the hook. Using your lock's block explorer page, click on `Contract` > `Write as Proxy`. Connect your wallet (you need to be connected as a lock's manager) and look for `setEventHooks`. In the `_onKeyPurchaseHook` enter the address of the hook (from the list above), and enter `0x0000000000000000000000000000000000000000` for all the other hooks (unless of course, you want to use them...).
+
+![image](https://user-images.githubusercontent.com/17735/189869051-5c20e082-9ee3-4e9c-bb39-9f7c5e93c301.png)
 
 4. [Build a Checkout URL](https://docs.unlock-protocol.com/tools/checkout/configuration) and make sure you include the `"password": true` option in it so that users are prompted for the password when they go through the checkout flow!
 
