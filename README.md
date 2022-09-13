@@ -1,6 +1,8 @@
 # Password Hook for Locks
 
-This project implements an Unlock PublicLock Hook that can be used on PublicLocks to ensure that users who are purchasing a key from a lock have entered the right password on the frontend application.
+This project implements an Unlock [PublicLock Hook](https://docs.unlock-protocol.com/core-protocol/public-lock/hooks) that can be used on Locks smart contracts to ensure that users who are purchasing a key from a lock have entered the right password on the frontend application.
+
+This process is _secured_ and cannot be bypassed by calling the contract directly as the password is used to submit the transaction on-chain.
 
 When the user enters a password on the frontend application. This password is used to generate a private key that is then used to sign the recipient's address. That signature is passed as the data argument on the `purchase` call.
 
@@ -24,13 +26,13 @@ If you don't enter the password, or if you use an incorrect password, the transa
 
 ## Using the hook for your own lock
 
-1. First, you need to pick a password, then go to this page to generate the corresponding Ethereum address.
+1. First, you need to pick a password, then [go to this page to generate the corresponding Ethereum address](https://unlock-protocol.github.io/password-required-hook/). You can also generate this locally if needed by checking out the repo and switching to the `gh-page` branch.
 
-2. Then, click on which network your lock has been deployed on (list above) and head `Contract` > `Write Contract`. Connect your wallet (you need to be connected as a lock's manager) and click on `setSigner`. There, enter the lock address, and then the Ethereum address generated in the previous step.
+2. Then, click on which network your lock has been deployed on (list above) and head `Contract` > `Write Contract`. Connect your wallet (you need to be connected as a lock's manager) and click on `setSigner`. There, enter the lock address, and then the wallet address generated in the previous step.
 
 3. Finally, you need to point your lock to the hook. Using your lock's block explorer page, click on `Contract` > `Write as Proxy`. Connect your wallet (you need to be connected as a lock's manager) and look for `setEventHooks`. In the `_onKeyPurchaseHook` enter the address of the hook (from the list above), and enter `0x0000000000000000000000000000000000000000` for all the other hooks (unless of course, you want to use them...).
 
-4. [Build a Checkout URL](https://docs.unlock-protocol.com/tools/checkout/configuration) and make sure you include the `"passord": true` option in it so that users are prompted for the password when they go through the checkout flow!
+4. [Build a Checkout URL](https://docs.unlock-protocol.com/tools/checkout/configuration) and make sure you include the `"password": true` option in it so that users are prompted for the password when they go through the checkout flow!
 
 ## Dev
 
@@ -40,10 +42,10 @@ You can deploy the hook on other chains by adding the chain to the `hardhat.conf
 yarn run hardhat run scripts/deploy.js --network my-network
 ```
 
-To verify, call :
+To verify the contract on block explorers, call :
 
 ```
-yarn run hardhat verify --network my-network 0xhook-address 0x58b5cede554a39666091f96c8058920df5906581
+yarn run hardhat verify --network my-network 0xhook-address
 ```
 
 Running tests:
@@ -51,7 +53,3 @@ Running tests:
 ```
 yarn run hardhat test test/sample-test.js
 ```
-
-## Front-end
-
-Please, make sure you use the `captcha` option in the `paywallConfig` object for the captcha to actually be completed and transactions to go through.
