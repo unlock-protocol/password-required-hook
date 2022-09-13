@@ -1,5 +1,93 @@
-<h1>Password Protected Lock</h1>
-<p>
-  This simple page let's you compute the signer address based on a password. The
-  signer address cna be public but please keep the password secret.
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Password Protected Lock</title>
+  </head>
+  <body>
+    <h1>Password Protected Lock</h1>
+
+    <p>
+      This simple page let's you compute the signer address based on a password.
+      The signer address can be public but please
+      <strong>keep the password secret</strong>.
+    </p>
+
+    <!-- We will put our React component inside this div. -->
+    <div id="like_button_container"></div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function MyApp() {
+        const [password, setPassword] = React.useState("");
+        const [signer, setSigner] = React.useState("");
+
+        const handleChange = (e) => {
+          setSigner("");
+          setPassword(e.target.value);
+        };
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+          const encoded = ethers.utils.defaultAbiCoder.encode(
+            ["bytes32"],
+            [ethers.utils.id(password)]
+          );
+          const privateKey = ethers.utils.keccak256(encoded);
+          const privateKeyAccount = new ethers.Wallet(privateKey);
+
+          return setSigner(privateKeyAccount.address);
+        };
+        return (
+          <form onSubmit={handleSubmit}>
+            <p>
+              <input onChange={handleChange} />
+            </p>
+            <p>
+              <button type="submit">Compute signer</button>
+            </p>
+            {signer && (
+              <p>
+                The signer corresponding to your password is{" "}
+                <code>{signer}</code>.
+              </p>
+            )}
+          </form>
+        );
+      }
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
