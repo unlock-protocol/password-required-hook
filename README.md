@@ -12,7 +12,9 @@ The Unlock Protocol team has deployed and verified a version of this hook on the
 
 Production networks:
 
-TODO
+- [Ethereum](https://etherscan.io/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB#code)
+- [Polygon](https://polygonscan.com/address/0xD925Ac2887Ba4372849F0fd64217A6749552bb21)
+- [Gnosis Chain](https://blockscout.com/xdai/mainnet/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB)
 
 Test networks:
 
