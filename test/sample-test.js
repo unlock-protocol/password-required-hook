@@ -68,6 +68,9 @@ describe("PurchaseHook", function () {
       ethers.constants.AddressZero,
       ethers.constants.AddressZero,
       ethers.constants.AddressZero,
+      ethers.constants.AddressZero,
+      ethers.constants.AddressZero,
+      ethers.constants.AddressZero,
     )).wait()
 
 

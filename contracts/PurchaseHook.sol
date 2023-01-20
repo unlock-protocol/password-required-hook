@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "@unlock-protocol/contracts/dist/PublicLock/IPublicLockV10.sol";
+import "@unlock-protocol/contracts/dist/PublicLock/IPublicLockV12.sol";
 
 error WRONG_PASSWORD();
 error NOT_AUTHORIZED();
@@ -17,7 +17,7 @@ contract PurchaseHook {
      * Function to set the signer for a lock.
      */
     function setSigner(address lock, address signer) public {
-        if (!IPublicLock(lock).isLockManager(msg.sender)) {
+        if (!IPublicLockV12(lock).isLockManager(msg.sender)) {
             revert NOT_AUTHORIZED();
         }
         signers[lock] = signer;
@@ -34,7 +34,7 @@ contract PurchaseHook {
         bytes calldata signature /* data */
     ) external view returns (uint256 minKeyPrice) {
         if(getSigner(toString(recipient), signature) == signers[msg.sender]) {
-            return IPublicLock(msg.sender).keyPrice();
+            return IPublicLockV12(msg.sender).keyPrice();
         }
         revert WRONG_PASSWORD();
     }
@@ -84,6 +84,7 @@ contract PurchaseHook {
      * No-op but required for the hook to work
      */
     function onKeyPurchase(
+        uint256, /* tokenId */
         address, /*from*/
         address, /*recipient*/
         address, /*referrer*/
