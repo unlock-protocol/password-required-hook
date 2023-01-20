@@ -10,7 +10,7 @@ A lock manager can set the right signer based on the password for a lock using `
 
 The Unlock Protocol team has deployed and verified a version of this hook on the following networks:
 
-Production networks:
+### Production networks:
 
 - [Ethereum](https://etherscan.io/address/0x936Ed3E71b5990bC9A94074835D08C6ca7bbFad0): `0x936Ed3E71b5990bC9A94074835D08C6ca7bbFad0`
 - [Polygon](https://polygonscan.com/address/0x9F4AE507d7E91Ab37CF35f792940fE079bd4E24d): `0x9F4AE507d7E91Ab37CF35f792940fE079bd4E24d`
@@ -19,7 +19,7 @@ Production networks:
 - [Abitrum](https://arbiscan.io/address/0xd0b14797b9D08493392865647384974470202A78): `0xd0b14797b9D08493392865647384974470202A78`
 - [BNB Chain](https://bscscan.com/address/0x338b1f296217485bf4df6CE9f93ab4C73F72b57D): `0x338b1f296217485bf4df6CE9f93ab4C73F72b57D`
 
-Test networks:
+### Test networks:
 
 - [Goerli](https://goerli.etherscan.io/address/0xCa837900f7DaB40787b608b6738d1B730f1d2759): `0xCa837900f7DaB40787b608b6738d1B730f1d2759`
 - [Mumbai](https://mumbai.polygonscan.com/address/0x34EbEc0AE80A2d078DE5489f0f5cAa4d3aaEA355): `0x34EbEc0AE80A2d078DE5489f0f5cAa4d3aaEA355`
