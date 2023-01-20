@@ -2,6 +2,9 @@ const { ethers, network } = require("hardhat");
 
 async function main() {
     const [user] = await ethers.getSigners();
+    if (!user) {
+        throw new Error("Missing signer!, set PKEY env variable")
+    }
     const { chainId } = await user.provider.getNetwork()
     console.log(`Deploying from ${user.address} on ${chainId}`);
 

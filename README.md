@@ -12,13 +12,17 @@ The Unlock Protocol team has deployed and verified a version of this hook on the
 
 Production networks:
 
-- [Ethereum](https://etherscan.io/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB#code)
-- [Polygon](https://polygonscan.com/address/0xD925Ac2887Ba4372849F0fd64217A6749552bb21)
-- [Gnosis Chain](https://blockscout.com/xdai/mainnet/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB)
+- [Ethereum](https://etherscan.io/address/0x936Ed3E71b5990bC9A94074835D08C6ca7bbFad0)
+- [Polygon](https://polygonscan.com/address/0x9F4AE507d7E91Ab37CF35f792940fE079bd4E24d)
+- [Gnosis Chain](https://blockscout.com/xdai/mainnet/address/0x927D68eAE936Ec0111f01Fc4Ddd9cC57DB3f0Af2)
+- [Optimism](https://optimistic.etherscan.io/address/0x34EbEc0AE80A2d078DE5489f0f5cAa4d3aaEA355)
+- [Abitrum](https://arbiscan.io/address/0xd0b14797b9D08493392865647384974470202A78)
+- [BNB Chain](https://bscscan.com/address/0x338b1f296217485bf4df6CE9f93ab4C73F72b57D)
 
 Test networks:
 
-- [Goerli](https://goerli.etherscan.io/address/0xe6e4b5daa2733e5090f23820d5a17d6cb25eea42)
+- [Goerli](https://goerli.etherscan.io/address/0xCa837900f7DaB40787b608b6738d1B730f1d2759)
+- [Mumbai](https://mumbai.polygonscan.com/address/0x34EbEc0AE80A2d078DE5489f0f5cAa4d3aaEA355)
 
 ## Example
 
@@ -61,3 +65,17 @@ Running tests:
 ```
 yarn run hardhat test test/sample-test.js
 ```
+
+## Older versions:
+
+For lock that are prior to v12, please use the following: (or please, upgrade your locks!)
+
+Production networks:
+
+- [Ethereum](https://etherscan.io/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB#code)
+- [Polygon](https://polygonscan.com/address/0xD925Ac2887Ba4372849F0fd64217A6749552bb21)
+- [Gnosis Chain](https://blockscout.com/xdai/mainnet/address/0xe87eFc02F26EFE45171afDBEc85D743FDB2Eb1FB)
+
+Test networks:
+
+- [Goerli](https://goerli.etherscan.io/address/0xe6e4b5daa2733e5090f23820d5a17d6cb25eea42)
