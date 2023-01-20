@@ -4,7 +4,7 @@ This project implements an Unlock [PublicLock Hook](https://docs.unlock-protocol
 
 This process is _secured_ and cannot be bypassed by calling the contract directly as the password is used to submit the transaction on-chain.
 
-When the user enters a password on the frontend application. This password is used to generate a private key that is then used to sign the recipient's address. That signature is passed as the data argument on the `purchase` call.
+When the user enters a password on the frontend application, the password is used to generate a private key that is then used to sign the recipient's address. That signature is passed as the data argument on the `purchase` call.
 
 A lock manager can set the right signer based on the password for a lock using `setSigner`.
 
